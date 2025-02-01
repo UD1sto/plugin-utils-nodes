@@ -26,12 +26,31 @@ class KeypointsToPoseNode:
 
         # Define keypoint connections (stickman bones)
         bones = [
-            ("head", "neck"), ("neck", "left_shoulder"), ("neck", "right_shoulder"),
+            ("head", "neck"), ("left_eye", "right_eye"), 
+            ("left_eye", "left_ear"), ("right_eye", "right_ear"),
+            ("left_ear", "neck"), ("right_ear", "neck"),
+            
+            # Upper body
+            ("neck", "left_shoulder"), ("neck", "right_shoulder"),
             ("left_shoulder", "left_elbow"), ("right_shoulder", "right_elbow"),
-            ("left_elbow", "left_wrist"), ("right_elbow", "right_wrist"),
+            ("left_elbow", "left_hand"), ("right_elbow", "right_hand"),
+            
+            # Lower body
             ("neck", "left_hip"), ("neck", "right_hip"),
+            ("left_hip", "right_hip"),  # Pelvis connection
             ("left_hip", "left_knee"), ("right_hip", "right_knee"),
             ("left_knee", "left_ankle"), ("right_knee", "right_ankle"),
+            ("left_ankle", "left_heel"), ("right_ankle", "right_heel"),
+            ("left_heel", "left_toe"), ("right_heel", "right_toe"),
+            
+            # Side body connections
+            ("left_shoulder", "left_hip"), ("right_shoulder", "right_hip"),
+            ("neck", "mid_hip"),  # Main spinal connection
+            ("mid_hip", "left_hip"), ("mid_hip", "right_hip"),
+            ("left_elbow", "left_hand"), 
+            ("right_elbow", "right_hand"),
+            ("neck", "mid_back"),
+            ("mid_back", "mid_hip"),
         ]
 
         # Draw bones
@@ -59,12 +78,28 @@ class KeypointsInputNode:
                 "head_y": ("FLOAT", {"default": 0.1, "min": 0.0, "max": 1.0, "step": 0.01}),
                 "neck_x": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01}),
                 "neck_y": ("FLOAT", {"default": 0.2, "min": 0.0, "max": 1.0, "step": 0.01}),
-                # Add all other keypoints following the same pattern
                 "left_shoulder_x": ("FLOAT", {"default": 0.4, "min": 0.0, "max": 1.0, "step": 0.01}),
                 "left_shoulder_y": ("FLOAT", {"default": 0.3, "min": 0.0, "max": 1.0, "step": 0.01}),
                 "right_shoulder_x": ("FLOAT", {"default": 0.6, "min": 0.0, "max": 1.0, "step": 0.01}),
                 "right_shoulder_y": ("FLOAT", {"default": 0.3, "min": 0.0, "max": 1.0, "step": 0.01}),
-                # Continue with remaining keypoints...
+                "left_eye_x": ("FLOAT", {"default": 0.45, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "left_eye_y": ("FLOAT", {"default": 0.08, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "right_eye_x": ("FLOAT", {"default": 0.55, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "right_eye_y": ("FLOAT", {"default": 0.08, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "left_ear_x": ("FLOAT", {"default": 0.4, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "left_ear_y": ("FLOAT", {"default": 0.1, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "right_ear_x": ("FLOAT", {"default": 0.6, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "right_ear_y": ("FLOAT", {"default": 0.1, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "left_toe_x": ("FLOAT", {"default": 0.4, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "left_toe_y": ("FLOAT", {"default": 0.9, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "right_toe_x": ("FLOAT", {"default": 0.6, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "right_toe_y": ("FLOAT", {"default": 0.9, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "left_hand_x": ("FLOAT", {"default": 0.35, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "left_hand_y": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "right_hand_x": ("FLOAT", {"default": 0.65, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "right_hand_y": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "mid_hip_x": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "mid_hip_y": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01}),
             }
         }
 
@@ -79,10 +114,15 @@ class KeypointsInputNode:
             "head", "neck", 
             "left_shoulder", "right_shoulder",
             "left_elbow", "right_elbow",
-            "left_wrist", "right_wrist",
+            "left_hand", "right_hand",
             "left_hip", "right_hip",
             "left_knee", "right_knee",
-            "left_ankle", "right_ankle"
+            "left_ankle", "right_ankle",
+            "left_eye", "right_eye",
+            "left_ear", "right_ear",
+            "left_toe", "right_toe",
+            "left_heel", "right_heel",
+            "mid_hip",
         ]
         
         for joint in joints:
