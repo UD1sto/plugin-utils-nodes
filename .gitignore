@@ -9,3 +9,4 @@ venv/
 *.sublime-project 
 llm_nodes.py
 pose_database/*
+!pose_database/.gitkeep
