@@ -5,8 +5,8 @@ from .image_simhash_nodes import (
     ImageReferenceUpdateNode,
     FrameBlendNode
 )
-from .keypoints_to_img_2d import (KeypointsToPoseNode, KeypointsInputNode)
-
+from .keypoints_to_img_2d import (KeypointsToPoseNode, KeypointsInputNode, PoseEstimatorNode, KeypointComparatorNode, PoseDatabaseNode, PoseDifferenceNode)
+# from .llm_nodes import (LLMKeypointGeneratorNode, JSONToKeypointsNode)
 NODE_CLASS_MAPPINGS = {
     "SimHashCompare": SimHashCompareNode,
     "ImageSelector": ImageSelectorNode,
@@ -14,7 +14,11 @@ NODE_CLASS_MAPPINGS = {
     "ImageReferenceUpdate": ImageReferenceUpdateNode,
     "FrameBlend": FrameBlendNode,
     "KeypointsToPose": KeypointsToPoseNode,
-    "KeypointsInput": KeypointsInputNode
+    "KeypointsInput": KeypointsInputNode,
+    "PoseEstimator": PoseEstimatorNode,
+    "KeypointComparator": KeypointComparatorNode,
+    "PoseDatabase": PoseDatabaseNode,
+    "PoseDifference": PoseDifferenceNode
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -24,5 +28,14 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "ImageReferenceUpdate": "Update Image Reference",
     "FrameBlend": "Frame Blend",
     "KeypointsToPose": "Keypoints to Pose",
-    "KeypointsInput": "Keypoints Input"
+    "KeypointsInput": "Keypoints Input",
+    "PoseEstimator": "Pose Estimation",
+    "KeypointComparator": "Keypoint Comparison",
+    "PoseDatabase": "Pose Database",
+    "PoseDifference": "Pose Difference Visualizer"
 }
+
+# NODE_CLASS_MAPPINGS = {
+#     "LLMKeypointGenerator": LLMKeypointGeneratorNode,
+#     "JSONToKeypoints": JSONToKeypointsNode,
+# }
