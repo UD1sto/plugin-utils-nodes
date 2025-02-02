@@ -1,11 +1,11 @@
-from .image_simhash_nodes import (
+from .hash_utils_nodes import (
     SimHashCompareNode,
     ImageSelectorNode, 
     TemporalConsistencyNode,
     ImageReferenceUpdateNode,
     FrameBlendNode
 )
-from .keypoints_to_img_2d import (KeypointsToPoseNode, KeypointsInputNode, PoseEstimatorNode, KeypointComparatorNode, PoseDatabaseNode, PoseDifferenceNode)
+from .keypoint_utils_nodes import (KeypointsToPoseNode, KeypointsInputNode, PoseEstimatorNode, KeypointComparatorNode, PoseDatabaseNode, PoseDifferenceNode)
 # from .llm_nodes import (LLMKeypointGeneratorNode, JSONToKeypointsNode)
 NODE_CLASS_MAPPINGS = {
     "SimHashCompare": SimHashCompareNode,
