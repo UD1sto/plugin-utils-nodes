@@ -2,3 +2,8 @@ torch>=2.0.0
 numpy>=1.23.0
 opencv-python>=4.5.0
 Pillow>=9.0.0 
+openvino>=2023.0.0
+mmpose>=0.29.0
+mmdet==3.2.0
+annoy==1.17.3
+
